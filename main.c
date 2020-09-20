@@ -4,6 +4,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <errno.h>
 
 size_t	ft_strlen(const char *);
 char	*ft_strcpy(char *dst, char *src);
@@ -11,7 +12,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_write(int fildes, const void *buff, size_t nbyte);
 ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
 char	*ft_strdup(const char *s1);
-char	*ft_malloc(const char *s1);
 
 int		main(int ac, char **av)
 {
@@ -20,11 +20,10 @@ int		main(int ac, char **av)
 	int		fd = open(av[1], O_RDONLY);
 	int		fd2 = open(av[1], O_RDONLY);
 
+	char *test;
 	int test_write = (0x2000003);
 	int test_write_2 = ((2 << 24) | 3);
 	int test_read = (0x2000000);
-	if (ac >= 2)
-	{
 /*		char copy[ft_strlen(av[1])];
 		char copy2[ft_strlen(av[1])];
 		printf("av[1]_len=%d(vrai=%lu)\n", ft_strlen(av[1]), strlen(av[1]));
@@ -41,12 +40,13 @@ int		main(int ac, char **av)
 		printf("rl=(%d)| buffer=%s\n", ret, new);*/
 /*		printf("rl_av[1]_dup=%s\n", strdup(av[1]));
 		printf("ft_av[1]_dup=%s\n", ft_strdup(av[1]));*/
-		char *new2 = ft_malloc(av[1]);
-		new2[0] = 'a';
-		new2[1] = '\0';
-		printf("new2=%s\n", new2);
-		//printf("ft_strdup:%s\n", ft_strdup(av[1]));
-	}
+		test = ft_strdup("");
+		test[0] = 'a';
+		test[1] = 'b';
+		test[2] = 'c';
+		test[3] = 'd';
+		test[4] = 'e';
+		printf("test=%s\n", test);
 	close(fd);
 	close(fd2);
 	return (0);
