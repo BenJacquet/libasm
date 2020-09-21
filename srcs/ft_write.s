@@ -1,8 +1,8 @@
 section	.text
-		global _ft_write
-		extern ___error
+		global ft_write
+		extern __errno_location
 
-_ft_write :
+ft_write :
 	mov		rax, 0
 	syscall
 	jb		error
@@ -10,7 +10,7 @@ _ft_write :
 
 error :
 	push	rax
-	call	___error
+	call	__errno_location
 	pop		r9
 	mov		[rax], r9
 	mov		rax, -1

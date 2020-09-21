@@ -4,6 +4,7 @@ section .text
 _ft_strcmp :
 	mov rax, 0
 	mov rcx, 0
+	mov r8, 0
 
 is_equal :
 	mov r8b, BYTE [rdi + rcx]
