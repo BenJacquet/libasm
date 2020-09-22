@@ -1,11 +1,11 @@
 section	.text
 		global ft_strcpy
 
-ft_strcpy :
+ft_strcpy:
 	mov rax, 0
 	mov rcx, 0
 
-copy :
+copy:
 	mov	r8b, BYTE [rsi + rcx]
 	mov BYTE [rdi + rcx], r8b
 	cmp	r8b, 0
@@ -13,6 +13,6 @@ copy :
 	inc	rcx
 	jmp	copy
 
-return :
+return:
 	mov rax, rdi
 	ret

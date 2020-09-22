@@ -4,18 +4,17 @@ section	.text
 		extern	ft_strcpy
 		extern	ft_strlen
 
-ft_strdup :
+ft_strdup:
 	call	ft_strlen
 	push	rdi
 	mov		rdi, rax
-	add		rdi, 1
+	inc		rdi
 	call	malloc
 	pop		rsi
-	test	rax, rax
-	jz		return
+	cmp		rax, 0
+	je		return
 	mov		rdi, rax
 	call	ft_strcpy
-	ret
 
-return :
+return:
 	ret

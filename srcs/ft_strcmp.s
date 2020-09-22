@@ -1,12 +1,12 @@
 section .text
 		global ft_strcmp
 
-ft_strcmp :
+ft_strcmp:
 	mov rax, 0
 	mov rcx, 0
 	mov r8, 0
 
-is_equal :
+is_equal:
 	mov r8b, BYTE [rdi + rcx]
 	sub r8b, BYTE [rsi + rcx]
 	cmp r8b, 0
@@ -18,6 +18,6 @@ is_equal :
 	inc rcx
 	jmp is_equal
 
-return :
+return:
 	movsx rax, r8b
 	ret

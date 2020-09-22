@@ -5,20 +5,14 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
-
-size_t ft_strlen(const char *);
-char *ft_strcpy(char *dst, char *src);
-int ft_strcmp(const char *s1, const char *s2);
-ssize_t ft_write(int fildes, const void *buff, size_t nbyte);
-ssize_t ft_read(int fildes, void *buf, size_t nbyte);
-char *ft_strdup(const char *s1);
+#include "incs/libasm.h"
 
 int main(int ac, char **av)
 {
 	char new[4096 + 1];
 	int ret = 0;
 	int fd = open(av[1], O_RDONLY);
-	int fd2 = open(av[1], O_RDONLY);
+	int fd2 = open(av[2], O_RDONLY);
 
 	char copy[ft_strlen(av[1])];
 	char copy2[ft_strlen(av[1])];
