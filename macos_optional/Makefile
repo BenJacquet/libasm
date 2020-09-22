@@ -15,10 +15,12 @@ INCS = incs/libasm.h
 
 NASM = nasm
 
-FLAGS = -f elf64
+FLAGS = -f macho64
 
-$(NAME) :
-	$(NASM) -I $(INCS) $(FLAGS) $(SRCSDIR) -o $(OBJS)
+%.o : %.s
+	$(NASM) -I $(INCS) $(FLAGS) $< -o $@
+
+$(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 all : $(NAME)
