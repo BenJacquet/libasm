@@ -10,6 +10,7 @@ ft_read:
 	ret
 
 error:
+	neg		rax
 	push	rax
 	call	__errno_location
 	pop		r9

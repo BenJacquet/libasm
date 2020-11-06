@@ -4,11 +4,11 @@ section	.text
 ft_strlen:
 	mov rax, 0
 
-is_null:
+check:
 	cmp BYTE [rdi + rax], 0
 	je return
 	inc rax
-	jmp is_null
+	jmp check
 
 return:
 	ret

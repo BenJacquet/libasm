@@ -1,5 +1,7 @@
 NAME = libasm.a
 
+TEST = test
+
 SRCSDIR = srcs/
 
 SRCS =	srcs/ft_read.s\
@@ -8,6 +10,8 @@ SRCS =	srcs/ft_read.s\
 		srcs/ft_strdup.s\
 		srcs/ft_strlen.s\
 		srcs/ft_write.s
+
+MAIN = srcs/main.c
 
 OBJS = $(SRCS:.s=.o)
 
@@ -25,11 +29,14 @@ $(NAME) : $(OBJS)
 
 all : $(NAME)
 
+test : all
+	gcc $(MAIN) $(NAME) -no-pie -o $(TEST)
+
 clean :
 	rm -rf $(OBJS)
 
 fclean : clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(TEST) write_ft.txt write_rl.txt
 
 re : fclean all
 

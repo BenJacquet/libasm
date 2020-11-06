@@ -6,7 +6,7 @@
 /*   By: jabenjam <jabenjam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 17:12:13 by jabenjam          #+#    #+#             */
-/*   Updated: 2020/09/21 19:53:04 by jabenjam         ###   ########.fr       */
+/*   Updated: 2020/11/06 13:33:39 by jabenjam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <errno.h>
 
 size_t		ft_strlen(const char *str);
 char		*ft_strcpy(char *dst, char *src);
